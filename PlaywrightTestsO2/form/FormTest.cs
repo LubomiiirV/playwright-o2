@@ -48,8 +48,4 @@ public class InputForm
     await _btnAccept.ClickAsync();
   }
 
-
-  
-
-
 }

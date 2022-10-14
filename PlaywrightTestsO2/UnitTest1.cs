@@ -7,31 +7,6 @@ namespace PlaywrightTests;
 [TestFixture]
 public class Tests : PageTest
 {
-
-  /*neviem či to musi byť v testoch, video doku hovori ine ako doku playwright .net*/
-  
-  // [SetUp]
-  // public async Task Setup()
-  // {
-  //   await Page.GotoAsync("https://www.o2.sk");
-  // }
-
-  // [Test]
-  // public async Task ChodNaO2Sk()
-  
-  // {
-  //   // Expect page to have URL.
-  //   await Page.GotoAsync("https://www.o2.sk");
-  //   await Expect(Page).ToHaveURLAsync(new Regex("https://www.o2.sk"));
-    
-  //   // await Page.ScreenshotAsync(new()
-  //   // {
-  //   //   Path = "./screenshots/1-o2-sk.png",
-  //   //   FullPage = true,
-  //   // });
-
-  // }
-
   [Test]
   public async Task O2()
   {
@@ -43,7 +18,6 @@ public class Tests : PageTest
       Path = "./screenshots/1-o2-sk.png",
       FullPage = true,
     });
-
 
     // find and hover Nasa ponuka
     var handle = Page.Locator("text='Naša ponuka'");
@@ -160,21 +134,12 @@ public class Tests : PageTest
     await inputForm.Agree();
     await Expect(Page).ToHaveURLAsync("https://www.o2.sk/e-shop/udaje?page=SHIPPING_PAYMENT");
 
-
     await Page.ScreenshotAsync(new()
     {
       Path = "./screenshots/10-dorucenie a platba.png",
       FullPage = true,
 
     });
-
-    var context = await Browser.NewContextAsync(new()
-      {
-        RecordVideoDir = "./bin/Debug/net6.0videos/"
-      });
-    // Make sure to close, so that videos are saved.
-     await context.CloseAsync();
-
 
   }
 }
