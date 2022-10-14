@@ -35,13 +35,6 @@ public class Tests : PageTest
   [Test]
   public async Task O2()
   {
-    var context = await Browser.NewContextAsync(new()
-      {
-        RecordVideoDir = "videos/"
-      });
-    // Make sure to close, so that videos are saved.
-    await context.CloseAsync();
-    
     await Page.GotoAsync("https://www.o2.sk");
     await Expect(Page).ToHaveURLAsync(new Regex("https://www.o2.sk"));
     
@@ -174,6 +167,14 @@ public class Tests : PageTest
       FullPage = true,
 
     });
+
+    var context = await Browser.NewContextAsync(new()
+      {
+        RecordVideoDir = "./bin/Debug/net6.0videos/"
+      });
+    // Make sure to close, so that videos are saved.
+     await context.CloseAsync();
+
 
   }
 }
