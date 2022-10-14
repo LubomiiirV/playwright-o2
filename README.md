@@ -16,6 +16,8 @@ bin/Debug/net6.0(<= dopln aktualnu verziu )/playwright.ps1 install
 
 dotnet test
 
+PATH to screenshots: \bin\Debug\net6.0\screenshots\
+
 Test Generator:
 
     npx playwright codegen playwright.dev
