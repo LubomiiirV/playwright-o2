@@ -132,9 +132,13 @@ public class Tests : PageTest
     var inputForm = new InputForm(Page);
     //await inputForm.ClickPerson();
 
-    
+    await inputForm.AddNameSureName(name:"Lubomir", surename:"Vaclavik");
+    await inputForm.AddPhoneEmail(phone:"0948528362", email:"vaclaviklubomir@gmail.com");
+    await inputForm.AddAdress(street:"Zuzany Chalupovej", building:"10B", city: "Bratislava", zip:"85101"/*,country: "Slovakia"*/);
 
-    await inputForm.AddDetails(name:"Lubomir", surename:"Vaclavik", phonenumber:"0948528362");
+    await inputForm.AddAgreement();
+
+
     await Page.ScreenshotAsync(new()
     {
       Path = "./screenshots/9.png",

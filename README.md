@@ -36,6 +36,8 @@ Kliknite v dalsom kroku na dokoncit objednavku – vyskoci dialogove okno, kde z
 Vyplnte vsetky povinne polia a oznacte povinne suhlasy a kliknite potvrdit
 Tu test skonci, nakolko v dalsom kroku by ste potvrdili objednavku finalne, co nie je nutne
 
+--all done
+
 Bonusova Uloha:
 Nagivovat sa cez o2.sk -> nasa ponuka -> pre domacnost -> prejst na internet na doma. Na tejto stranke overit dostupnost internet una doma pre lubovolnu adresu.
 
@@ -45,11 +47,11 @@ Bonusove body:
 validacie na FE
 validacie na BE
 
-pouzitie features ako screenshot obrazka alebo nahratie videa priamo z IDE
+pouzitie features ako screenshot obrazka alebo nahratie videa priamo z IDE -- done screenshots
 
 vyhladanie konkretneho telefonu v kombinacii s pausalom
 
-implementacia page object modelu
+implementacia page object modelu -- done
 
 Playwright for .NET 🎭
 NuGet version Join Slack

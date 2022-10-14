@@ -13,39 +13,47 @@ public class InputForm
   private ILocator _sureName => _page.Locator("#surname");
 
   private ILocator _phoneNumber => _page.Locator("#residentPhoneNumber");
-  private ILocator _email => _page.Locator("");
-  private ILocator _streetName => _page.Locator("");
-  private ILocator _buildingNumber => _page.Locator("");
-  private ILocator _cityName => _page.Locator("");
-  private ILocator _zipCode => _page.Locator("");
-  private ILocator _countryName => _page.Locator("");
-  private ILocator _chckboxAgreeAll => _page.Locator("");
+  private ILocator _email => _page.Locator("#residentEmail");
+  private ILocator _streetName => _page.Locator("#street");
+  private ILocator _buildingNumber => _page.Locator("#houseNumber");
+  private ILocator _cityName => _page.Locator("#city");
+  private ILocator _zipCode => _page.Locator("#zip");
+  private ILocator _countryName => _page.Locator("#countrySelect");
+  private ILocator _chckboxAgreeAll => _page.Locator("#bulk_agreement");
   private ILocator _chckboxAgreeFirst => _page.Locator("");
   private ILocator _chckboxAgreeSecond => _page.Locator("");
   private ILocator _chckboxAgreeThird => _page.Locator("");
   private ILocator _btnAccept => _page.Locator("");
   
-
-
-
   // public async Task ClickPerson(){
   //   await _btnPersonCompany.ClickAsync();
-  //   // await _page.ScreenshotAsync(new()
-  //   // {
-  //   //   Path = "./screenshots/10-person.png",
-  //   //   FullPage = true,
-
-  //   // });
 
   // }
 
-  public async Task AddDetails(string name, string surename, string phonenumber) {
+  public async Task AddNameSureName(string name, string surename) {
     await _name.FillAsync(name);
     await _sureName.FillAsync(surename);
-    await _phoneNumber.FillAsync(phonenumber);
-
     
   }
+
+  public async Task AddPhoneEmail(string phone, string email) {
+    await _phoneNumber.FillAsync(phone);
+    await _email.FillAsync(email);
+    
+  }
+
+  public async Task AddAdress(string street, string building, string city, string zip /*,string country*/) {
+    await _streetName.FillAsync(street);
+    await _buildingNumber.FillAsync(building);
+    await _cityName.FillAsync(city);
+    await _zipCode.FillAsync(zip);
+    //await _countryName.FillAsync(country);
+  }
+
+  public async Task AddAgreement() {
+    await _chckboxAgreeAll.ClickAsync(); //not working, not checking
+  }
+
 
   
 
