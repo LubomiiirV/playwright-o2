@@ -129,17 +129,18 @@ public class Tests : PageTest
     // });
 
     //test with POM
-    InputForm inputForm = new InputForm(Page);
+    var inputForm = new InputForm(Page);
     //await inputForm.ClickPerson();
 
-    // await Page.ScreenshotAsync(new()
-    // {
-    //   Path = "./screenshots/9.png",
-    //   FullPage = true,
+    
 
-    // });
+    await inputForm.AddDetails(name:"Lubomir", surename:"Vaclavik", phonenumber:"0948528362");
+    await Page.ScreenshotAsync(new()
+    {
+      Path = "./screenshots/9.png",
+      FullPage = true,
 
-    await inputForm.AddDetails(name:"Lubomir", surename:"Vaclavik");
+    });
 
 
 

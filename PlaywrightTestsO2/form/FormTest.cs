@@ -7,31 +7,26 @@ namespace PlaywrightTests;
 public class InputForm
 {
   private IPage _page;
-  //private ILocator _btnPersonCompany;
-  private ILocator _txtName;
-  private ILocator _txtSureName;
-  // private ILocator _txtPhoneNumber;
-  // private readonly ILocator _txtEmail;
-  // private readonly ILocator _txtStreet;
-  // private readonly ILocator _txtBuildingNumber;
-  // private readonly ILocator _txtCity;
-  // private readonly ILocator _txtZipCode;
-  // private readonly ILocator _btnCountry;
-  // private readonly ILocator _chckboxAgreeAll;
-  // private readonly ILocator _chckboxAgreeFirst;
-  // private readonly ILocator _chckboxAgreeSecond;
-  // private readonly ILocator _chckboxAgreeThird;
-  // private readonly ILocator _btnAccept;
+  public InputForm(IPage page) => _page = page;
+  //private ILocator _btnPersonCompany => _page.Locator(");
+  private ILocator _name => _page.Locator("#name");
+  private ILocator _sureName => _page.Locator("#surname");
+
+  private ILocator _phoneNumber => _page.Locator("#residentPhoneNumber");
+  private ILocator _email => _page.Locator("");
+  private ILocator _streetName => _page.Locator("");
+  private ILocator _buildingNumber => _page.Locator("");
+  private ILocator _cityName => _page.Locator("");
+  private ILocator _zipCode => _page.Locator("");
+  private ILocator _countryName => _page.Locator("");
+  private ILocator _chckboxAgreeAll => _page.Locator("");
+  private ILocator _chckboxAgreeFirst => _page.Locator("");
+  private ILocator _chckboxAgreeSecond => _page.Locator("");
+  private ILocator _chckboxAgreeThird => _page.Locator("");
+  private ILocator _btnAccept => _page.Locator("");
+  
 
 
-  public InputForm(IPage page)
-  {
-    _page = page;
-    //_btnPersonCompany = page.Locator("text=súkromná osoba");
-    _txtName = page.Locator("#name");
-    _txtSureName = page.Locator("#surename");
-
-  }
 
   // public async Task ClickPerson(){
   //   await _btnPersonCompany.ClickAsync();
@@ -44,16 +39,12 @@ public class InputForm
 
   // }
 
-  public async Task AddDetails(string name, string surename) {
-    await _txtName.FillAsync(name);
-    await _txtSureName.FillAsync(surename);
+  public async Task AddDetails(string name, string surename, string phonenumber) {
+    await _name.FillAsync(name);
+    await _sureName.FillAsync(surename);
+    await _phoneNumber.FillAsync(phonenumber);
 
-    // await _page.ScreenshotAsync(new()
-    // {
-    //   Path = "./screenshots/11-person.png",
-    //   FullPage = true,
-
-    // });
+    
   }
 
   
