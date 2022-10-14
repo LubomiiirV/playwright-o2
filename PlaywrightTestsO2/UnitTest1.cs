@@ -43,7 +43,7 @@ public class Tests : PageTest
 
     //  click Telefony a zariadenia
     await Page.GetByText("Telefóny a zariadenia").ClickAsync();
-    await Page.WaitForTimeoutAsync(1500);
+    await Page.WaitForTimeoutAsync(500);
 
     await Page.ScreenshotAsync(new()
     {
@@ -67,7 +67,7 @@ public class Tests : PageTest
     // choose a device - Apple iPhone 14 256GB Fialovy 
     await Page.GetByText("Apple iPhone 14 256GB Fialový").ClickAsync();
     await Expect(Page).ToHaveURLAsync("https://www.o2.sk/e-shop/produkt/apple-iphone-14-256gb-fialovy");
-    await Page.WaitForTimeoutAsync(1500);
+    await Page.WaitForTimeoutAsync(500);
 
     await Page.ScreenshotAsync(new()
     {
@@ -89,7 +89,7 @@ public class Tests : PageTest
 
     });
 
-    // shopping cart
+    // continue as new user
     await Page.Locator("text='Pokračovať ako nový zákazník'").ClickAsync();
     await Expect(Page).ToHaveURLAsync("https://www.o2.sk/e-shop/kosik");
 
@@ -100,9 +100,11 @@ public class Tests : PageTest
 
     });
 
-    // finalize order 
+    // shopping cart
     await Page.Locator("#confirm-shopping-cart").ClickAsync();
-    await Page.WaitForTimeoutAsync(1500);
+    await Page.WaitForTimeoutAsync(500);
+
+    //skip login
     await Page.Locator("text='Preskočiť prihlásenie'").ClickAsync();
     await Expect(Page).ToHaveURLAsync("https://www.o2.sk/e-shop/udaje");
 
