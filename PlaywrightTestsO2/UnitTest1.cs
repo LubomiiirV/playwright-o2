@@ -115,71 +115,71 @@ public class Tests : PageTest
 
     });
 
-  }
+    //test with POM
+    Form form = new Form(page);
+    await form.ClickPerson();
 
-  //   [Test]
-  //    public async Task VyplnteVsetkyPovinnePoliaAOznactePovinneSuhlasyAKliknitePotvrdit.TuTestSkonciNakolkoVDalsomKrokuByStePotvrdiliObjednavkuFinalneCoNieJeNutne() 
-  //    {}
-  //     await page.getByRole("button", { name: "súkromná osoba" }).click();
-  //     await page.locator('a:has-text("súkromná osoba")').click();
-  //     await page
-  //       .locator('input[name="customerInfo\\.primaryContact\\.firstName"]')
-  //       .click();
-  //     await page
-  //       .locator('input[name="customerInfo\\.primaryContact\\.firstName"]')
-  //       .fill("Ľubomír");
-  //     await page
-  //       .locator('input[name="customerInfo\\.primaryContact\\.lastName"]')
-  //       .click();
-  //     await page
-  //       .locator('input[name="customerInfo\\.primaryContact\\.lastName"]')
-  //       .fill("Václavik");
-  //     await page
-  //       .locator('input[name="customerInfo\\.primaryContact\\.lastName"]')
-  //       .press("Tab");
-  //     await page
-  //       .locator('input[name="customerInfo\\.primaryContact\\.contactPhone"]')
-  //       .click();
-  //     await page
-  //       .locator('input[name="customerInfo\\.primaryContact\\.contactPhone"]')
-  //       .fill("0948528362");
-  //     await page
-  //       .locator('input[name="customerInfo\\.primaryContact\\.email"]')
-  //       .click();
-  //     await page
-  //       .locator('input[name="customerInfo\\.primaryContact\\.email"]')
-  //       .fill("vaclaviklubomir@gmail.com");
-  //     await page
-  //       .locator('input[name="customerInfo\\.primaryContact\\.address\\.street"]')
-  //       .click();
-  //     await page
-  //       .locator('input[name="customerInfo\\.primaryContact\\.address\\.street"]')
-  //       .fill("Zuzany");
-  //     await page
-  //       .getByRole("option", {
-  //         name: "Zuzany Chalupovej, Bratislava-Petržalka, 851 07",
-  //       })
-  //       .click();
-  //     await page
-  //       .locator(
-  //         'input[name="customerInfo\\.primaryContact\\.address\\.houseNumber"]'
-  //       )
-  //       .click();
-  //     await page
-  //       .locator(
-  //         'input[name="customerInfo\\.primaryContact\\.address\\.houseNumber"]'
-  //       )
-  //       .fill("10B");
-  //     await page
-  //       .locator('input[name="customerInfo\\.primaryContact\\.address\\.city"]')
-  //       .click();
-  //     await page
-  //       .locator(
-  //         'input[name="customerInfo\\.primaryContact\\.address\\.houseNumber"]'
-  //       )
-  //       .click();
-  //     await page
-  //       .getByLabel("Súhlasím so všetkými nižšie uvedenými možnosťami.")
-  //       .check();
-  //   });
+    //await Page.Locator("súkromná osoba").ClickAsync();
+    //   await page.locator('a:has-text("súkromná osoba")').click();
+    //   await page
+    //     .locator('input[name="customerInfo\\.primaryContact\\.firstName"]')
+    //     .click();
+    //   await page
+    //     .locator('input[name="customerInfo\\.primaryContact\\.firstName"]')
+    //     .fill("Ľubomír");
+    //   await page
+    //     .locator('input[name="customerInfo\\.primaryContact\\.lastName"]')
+    //     .click();
+    //   await page
+    //     .locator('input[name="customerInfo\\.primaryContact\\.lastName"]')
+    //     .fill("Václavik");
+    //   await page
+    //     .locator('input[name="customerInfo\\.primaryContact\\.lastName"]')
+    //     .press("Tab");
+    //   await page
+    //     .locator('input[name="customerInfo\\.primaryContact\\.contactPhone"]')
+    //     .click();
+    //   await page
+    //     .locator('input[name="customerInfo\\.primaryContact\\.contactPhone"]')
+    //     .fill("0948528362");
+    //   await page
+    //     .locator('input[name="customerInfo\\.primaryContact\\.email"]')
+    //     .click();
+    //   await page
+    //     .locator('input[name="customerInfo\\.primaryContact\\.email"]')
+    //     .fill("vaclaviklubomir@gmail.com");
+    //   await page
+    //     .locator('input[name="customerInfo\\.primaryContact\\.address\\.street"]')
+    //     .click();
+    //   await page
+    //     .locator('input[name="customerInfo\\.primaryContact\\.address\\.street"]')
+    //     .fill("Zuzany");
+    //   await page
+    //     .getByRole("option", {
+    //       name: "Zuzany Chalupovej, Bratislava-Petržalka, 851 07",
+    //     })
+    //     .click();
+    //   await page
+    //     .locator(
+    //       'input[name="customerInfo\\.primaryContact\\.address\\.houseNumber"]'
+    //     )
+    //     .click();
+    //   await page
+    //     .locator(
+    //       'input[name="customerInfo\\.primaryContact\\.address\\.houseNumber"]'
+    //     )
+    //     .fill("10B");
+    //   await page
+    //     .locator('input[name="customerInfo\\.primaryContact\\.address\\.city"]')
+    //     .click();
+    //   await page
+    //     .locator(
+    //       'input[name="customerInfo\\.primaryContact\\.address\\.houseNumber"]'
+    //     )
+    //     .click();
+    //   await page
+    //     .getByLabel("Súhlasím so všetkými nižšie uvedenými možnosťami.")
+    //     .check();
+
+  }
 }
