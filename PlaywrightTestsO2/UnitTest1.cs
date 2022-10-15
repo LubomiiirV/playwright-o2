@@ -22,6 +22,8 @@ public class Tests : PageTest
     // find and hover Nasa ponuka
     var handle = Page.Locator("text='Naša ponuka'");
     await handle.HoverAsync();
+
+    await handle.IsVisibleAsync();
     
     await Page.ScreenshotAsync(new()
     {
@@ -31,6 +33,8 @@ public class Tests : PageTest
 
     //  click Telefony a zariadenia
     await Page.GetByText("Telefóny a zariadenia").ClickAsync();
+
+    await Expect(Page).ToHaveURLAsync("https://www.o2.sk/ponuka/telefony-a-zariadenia");
     
     await Page.WaitForTimeoutAsync(1500);
 
@@ -97,6 +101,8 @@ public class Tests : PageTest
     await Page.Locator("#confirm-shopping-cart").ClickAsync();
     await Page.WaitForTimeoutAsync(1500);
 
+    await Page.Locator("#o4-shopping-cart-login-dialog-holder").IsVisibleAsync();
+
     await Page.ScreenshotAsync(new()
     {
       Path = "./screenshots/7.5-objednavka.png",
@@ -118,11 +124,14 @@ public class Tests : PageTest
 
     //test with POM
     var inputForm = new InputForm(Page);
-
+    //add person/company check
     await inputForm.AddNameSureName(name:"Lubomir", surename:"Vaclavik");
+    var name = Page.Locator("text='Lubomir'").IsVisibleAsync();
+    var surename = Page.Locator("text='Vaclavik'").IsVisibleAsync();
     await inputForm.AddPhoneEmail(phone:"0948528362", email:"vaclaviklubomir@gmail.com");
-    await inputForm.AddAdress(street:"Zuzany Chalupovej", building:"10", city: "Bratislava", zip:"85101"/*,country: "Slovakia"*/);
+    await inputForm.AddAdress(street:"Zuzany Chalupovej", building:"10", city: "Bratislava", zip:"85101");
     await inputForm.AddAgreement();
+    await Page.Locator("#bulk_agreement").IsCheckedAsync();
 
     await Page.ScreenshotAsync(new()
     {

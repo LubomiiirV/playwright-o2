@@ -33,7 +33,7 @@ public class InputForm
     
   }
 
-  public async Task AddAdress(string street, string building, string city, string zip /*,string country*/) {
+  public async Task AddAdress(string street, string building, string city, string zip) {
     await _streetName.FillAsync(street);
     await _buildingNumber.FillAsync(building);
     await _cityName.FillAsync(city);
@@ -41,7 +41,7 @@ public class InputForm
   }
 
   public async Task AddAgreement() {
-    await _chckboxAgreeAll.ClickAsync(); //not working, not checking
+    await _chckboxAgreeAll.ClickAsync();
   }
 
   public async Task Agree() {
