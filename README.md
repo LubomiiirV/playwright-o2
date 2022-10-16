@@ -14,6 +14,8 @@ dotnet tool install --global PowerShell
 
 bin/Debug/net6.0(<= dopln aktualnu verziu )/playwright.ps1 install
 
+$env:PWDEBUG=1 - ak chcem debugovať krok po kroku pripadne vidieť ako prebieha test v prehladači
+
 dotnet test
 
 PATH to screenshots: \bin\Debug\net6.0\screenshots\
