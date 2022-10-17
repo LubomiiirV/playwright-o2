@@ -6,6 +6,7 @@ public class InputForm
 {
   private IPage _page;
   public InputForm(IPage page) => _page = page;
+  private ILocator _person => _page.Locator("class:has-text('súkromná osoba')");
   private ILocator _name => _page.Locator("#name");
   private ILocator _sureName => _page.Locator("#surname");
   private ILocator _phoneNumber => _page.Locator("#residentPhoneNumber");
@@ -16,21 +17,20 @@ public class InputForm
   private ILocator _zipCode => _page.Locator("#zip");
   private ILocator _countryName => _page.Locator("#countrySelect");
   private ILocator _chckboxAgreeAll => _page.Locator("#bulk_agreement");
-  private ILocator _chckboxAgreeFirst => _page.Locator("");
-  private ILocator _chckboxAgreeSecond => _page.Locator("");
-  private ILocator _chckboxAgreeThird => _page.Locator("");
   private ILocator _btnAccept => _page.Locator("text='Potvrdiť'");
+
+  public async Task CheckPerson() {
+      await _person.IsVisibleAsync();
+    }
 
   public async Task AddNameSureName(string name, string surename) {
     await _name.FillAsync(name);
     await _sureName.FillAsync(surename);
-    
   }
 
   public async Task AddPhoneEmail(string phone, string email) {
     await _phoneNumber.FillAsync(phone);
     await _email.FillAsync(email);
-    
   }
 
   public async Task AddAdress(string street, string building, string city, string zip) {
