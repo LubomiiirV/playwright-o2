@@ -56,8 +56,8 @@ public class Tests : PageTest
     });
 
     // choose a device - Apple iPhone 14 256GB Fialovy 
-    await Page.GetByText("Apple iPhone 14 256GB Fialový").ClickAsync();
-    await Expect(Page).ToHaveURLAsync("https://www.o2.sk/e-shop/produkt/apple-iphone-14-256gb-fialovy");
+    await Page.GetByText("OPPO A17 Čierny").ClickAsync();
+    await Expect(Page).ToHaveURLAsync("https://www.o2.sk/e-shop/produkt/oppo-a17-cierny");
     await Page.WaitForTimeoutAsync(1500); //for full page load
 
     await Page.ScreenshotAsync(new()
@@ -70,7 +70,7 @@ public class Tests : PageTest
     // buy device Kúpiť za plnú sumu and go to next site
     var phone = Page.Locator("text='Kúpiť za plnú sumu'");
     await phone.ClickAsync();
-    await Expect(Page).ToHaveURLAsync("https://www.o2.sk/e-shop/nakup/#/?contextHw=apple-iphone-14-256gb-fialovy&paymentMethod=cash");
+    await Expect(Page).ToHaveURLAsync("https://www.o2.sk/e-shop/nakup/#/?contextHw=oppo-a17-cierny&paymentMethod=cash");
     await Page.WaitForTimeoutAsync(1500); //for full page load
     
     await Page.ScreenshotAsync(new()
@@ -81,7 +81,7 @@ public class Tests : PageTest
 
     });
 
-    // continue as new user
+    //continue as new user
     await Page.Locator("text='Pokračovať ako nový zákazník'").ClickAsync();
     await Expect(Page).ToHaveURLAsync("https://www.o2.sk/e-shop/kosik");
 
@@ -93,24 +93,13 @@ public class Tests : PageTest
     });
 
     // shopping cart
-    await Page.Locator("#confirm-shopping-cart").ClickAsync();
+    await Page.Locator("o2-button:has-text(\"Prejsť k osobným údajom\")").ClickAsync();
+    await Page.WaitForURLAsync("https://www.o2.sk/e-shop/udaje");
     await Page.WaitForTimeoutAsync(1500); //for full page load
-    await Page.Locator("#o4-shopping-cart-login-dialog-holder").IsVisibleAsync();
 
     await Page.ScreenshotAsync(new()
     {
       Path = "./screenshots/7.5-objednavka.png",
-      FullPage = true,
-
-    });
-
-    //skip login
-    await Page.Locator("text='Preskočiť prihlásenie'").ClickAsync();
-    await Expect(Page).ToHaveURLAsync("https://www.o2.sk/e-shop/udaje");
-
-    await Page.ScreenshotAsync(new()
-    {
-      Path = "./screenshots/8-objednavka.png",
       FullPage = true,
 
     });
