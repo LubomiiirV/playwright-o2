@@ -1,47 +1,51 @@
 # playwright-o2
+docu:
+https://playwright.dev/dotnet/docs/intro
 
-dotnet new nunit -n PlaywrightTests
 
-cd PlaywrightTests
+dotnet new nunit -n (nazov projektu) //treba definovať názov projektu bez () Velkemale 
 
-dotnet add package Microsoft.Playwright
+cd (nazov porjektu)
 
-dotnet add package Microsoft.Playwright.NUnit
+dotnet add package Microsoft.Playwright.MSTest
 
 dotnet build
 
-dotnet tool install --global PowerShell
+pwsh bin/Debug/net8.0/playwright.ps1 install // net8.0 je aktuálna verzia, zmeniť podla potreby
 
-bin/Debug/net6.0(<= dopln aktualnu verziu )/playwright.ps1 install
+HEADED=1 dotnet test // púšťa cest s browserom
 
 $env:PWDEBUG=1 - ak chcem debugovať krok po kroku pripadne vidieť ako prebieha test v prehladači
 
-dotnet test
+dotnet test //pripadne mat nainstalovane extensions vo VSCODE kde sa daju púšťat on click scenáre aj debugovať
 
-PATH to screenshots: \bin\Debug\net6.0\screenshots\
+PATH to screenshots: \bin\Debug\net8.0\screenshots\
 
 Test Generator:
 
-    npx playwright codegen playwright.dev
+pwsh bin/Debug/net8.0/playwright.ps1 codegen demo.playwright.dev/todomvc
+
+
+
 
 Pripravil som nasledujucu ulohu, ktora je podmnozinou realnej prace pre danu poziciu.
 
-Rozbehaj si playwright vo visual studio
+Rozbehaj si playwright vo visual studio code
 
 Vytvorenie test (BE validacie nie su nutne) na produkcnej o2 stranke pre nakup pausalu s telefonom (objednavku nedokoncovat)
 
 Biznis process je nasledovny:
 Chod na o2.sk
-Navigovat sa cez nasledovne: Nasa Ponuka -> telefony a zariadenia -> prejst na vsetky telefony
-Vyberte akykolvek telefon na sklade a kupte telefon s programom
-Kliknite v dalsom kroku na dokoncit objednavku – vyskoci dialogove okno, kde zvolite preskocit prihlasenie
+Odnaviguj sa do ktorehokolvek telefonu cez horne menu
+Dany telefon kup s programom
+Preklikaj sa všetkymi krokmi až do údajov zákazníka
 Vyplnte vsetky povinne polia a oznacte povinne suhlasy a kliknite potvrdit
 Tu test skonci, nakolko v dalsom kroku by ste potvrdili objednavku finalne, co nie je nutne
 
 --all done
 
 Bonusova Uloha:
-Nagivovat sa cez o2.sk -> nasa ponuka -> pre domacnost -> prejst na internet na doma. Na tejto stranke overit dostupnost internet una doma pre lubovolnu adresu.
+Nagivovat sa na internet na doma. Na tejto stranke overit dostupnost internetu na doma pre lubovolnu adresu.
 
 Testy prosim poslite nahrate na video + kod v C#.
 
@@ -54,18 +58,3 @@ pouzitie features ako screenshot obrazka alebo nahratie videa priamo z IDE -- do
 vyhladanie konkretneho telefonu v kombinacii s pausalom
 
 implementacia page object modelu -- done
-
-Playwright for .NET 🎭
-NuGet version Join Slack
-
-Linux macOS Windows
-Chromium 107.0.5304.18 ✅ ✅ ✅
-WebKit 16.0 ✅ ✅ ✅
-Firefox 105.0.1 ✅ ✅ ✅
-Playwright for .NET is the official language port of Playwright, the library to automate Chromium, Firefox and WebKit with a single API. Playwright is built to enable cross-browser web automation that is ever-green, capable, reliable and fast.
-
-Documentation
-https://playwright.dev/dotnet/docs/intro
-
-API Reference
-https://playwright.dev/dotnet/docs/api/class-playwright
